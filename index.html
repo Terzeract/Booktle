@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booktle</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="modal fade full-screen" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            
+            <div class="modal-body">
+            <form id="form" name="Submission" method="POST" data-netlify="true">
+               <div class="form_container">
+                <div>
+                    <h6>I Want To Book A</h6>
+                    <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="service">
+                        <option selected>Hotel</option>
+                        <option value="1">Flight</option>
+                        <option value="2">Cab</option>
+                      </select>
+                    <h6>Rooms / persons</h6>
+                    <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="users">
+                        <option selected>1 Adult</option>
+                        <option value="1">2 Adult</option>
+                        <option value="2">Family</option>
+                      </select>
+                    <h6>Amount of Booking</h6>
+                    <input placeholder="$100" name="bill"/>
+                </div>
+                <div>
+                    <h6>Please provide the link of the asset you want to book:</h6>
+                    <input placeholder="For example: https://www.booking.com/xyz" name="link" />
+                    <br/>
+                    <br/>
+                    <h6>Any Notes:</h6>
+                    <textarea placeholder="You can type any special requests or notes here..." name="message" ></textarea>
+                </div>
+               </div>
+               <br />
+               <button type="submit" class="secondary" style="width: 200px;">Next</button>
+            </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade full-screen" id="submisssionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            
+            <div class="modal-body">
+             <h6>Payment Method:<span> Crypto</span></h6>
+             <h6>Currency:<span> USDT</span></h6>
+             <h6>Channel:<span> TRC20</span></h6>
+             <h6>ADDRESS:<span> ldasjdasd081y2e1
+                 <img id="copy-icon" src="img/icon.png" style="cursor: pointer;" width="16px" onclick="copyFunction()"/>
+                </span></h6>
+             <p>Please send the payment screenshot on “booktel@gmail.com” to proceed with the booking.</p>
+             <button class="secondary">Payment Sent</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <button style="visibility: collapse;position: absolute;" id="submisssionModalBtn" data-bs-toggle="modal" data-bs-target="#submisssionModal">
+        Launch demo modal
+      </button>
+
+   <section class="hero">
+    <div class="container-fluid">
+        <div class="nav">
+            <img src="img/logo.png" alt="booktle" width="140px"/>
+            <div>
+                <p onclick="scroller('blog-div1')">What we do</p>
+                <p onclick="scroller('blog-div2')">How we do it</p>
+                <p onclick="scroller('cta')">Get in Touch</p>
+            </div>
+        </div>
+
+       <div class="hero_inner">
+         <h1>Make bookings on any platform, with anonymity. </h1>
+         
+         <button data-bs-toggle="modal" data-bs-target="#exampleModal">Make a booking</button>
+       </div>
+
+
+    </div>
+
+
+   </section>
+
+   <section class="blog">
+      <div class="blog_inner container-fluid">
+        <div class="blog-div" id="blog-div1">
+            <div>
+                <h2>What we do?</h2>
+                <p>We help you make bookings worldwide, on any platform anonymously. We do it through our transparent process, where you fill our form, and pay us through crypto to maintain your anonymity so we can make the booking with our payment channels.</p>
+            </div>
+            <img src="img/asset1.png"/>
+        </div>
+        <div class="blog-div" id="blog-div2">
+            <div>
+                <h2>How we do it?</h2>
+                <p>We make it possible through our various payment channels, that help you make online bookings without the hassle and fear of being hacked. Once we receive a request through our website form, we make the bookings in the name of our client and use our own payment method to complete the request, and send the conformation through a temporary email address to ensure 100% anonymity.</p>
+            </div>
+            <img src="img/asset2.png"/>
+        </div>
+      </div>
+    
+   </section>
+
+   <section class="cta" id="cta">
+      <div class="container-fluid">
+          <h6>BOOKTLE</h6>
+          <h2>Ready to Book?</h2>
+         <div style="display: flex;justify-content: center;">
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal">Book Now!</button>
+         </div>
+      </div>
+   </section>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+   <script>
+    var form = document.getElementById("form");
+    form.addEventListener('submit', submitForm);
+    function submitForm(event) {
+         event.preventDefault();
+         document.getElementById("submisssionModalBtn").click()
+      }
+
+      function copyFunction() {
+          navigator.clipboard.writeText('ldasjdasd081y2e1');
+          document.getElementById("copy-icon").style.opacity = '0.2'
+  
+      }
+
+      function scroller(id) {
+        document.getElementById(id).scrollIntoView({
+  behavior: 'smooth'
+});
+      }
+
+   </script>
+
+</body>
+</html>
